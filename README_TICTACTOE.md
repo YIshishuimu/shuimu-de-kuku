@@ -118,7 +118,31 @@ python train_ultra.py --episodes 30000 --num-models 3
 
 ### 2. 与AI对战
 
-加载训练好的模型进行对战：
+#### 可视化人机对战 (推荐) 🎮
+
+使用美化的彩色界面与AI对战：
+
+```bash
+# 使用最佳模型 (72.5%胜率)
+python play_visual.py
+
+# 自定义模型
+python play_visual.py --model models/my_model.pkl
+
+# AI先手
+python play_visual.py --ai-first
+```
+
+**界面特点:**
+- 🎨 彩色棋盘显示 (X=红色, O=蓝色)
+- 📍 清晰的坐标提示
+- 💡 友好的用户提示和帮助
+- 📊 实时游戏统计
+- 🔄 支持多局连续对战
+
+#### 简单命令行对战
+
+使用简单文本界面：
 
 ```bash
 python play_game.py
