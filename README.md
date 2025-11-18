@@ -24,6 +24,9 @@ python train_advanced.py
 # 超级训练 - 集成所有优化 (胜率 70-80%+) 🚀
 python train_ultra.py
 
+# 复盘训练 - 针对失败案例重点训练 (胜率提升 +20%) 📈
+python train_with_review.py
+
 # 分析对局并复盘 📊
 python analyze_games.py --model models/ultra_trained/model_1.pkl
 
