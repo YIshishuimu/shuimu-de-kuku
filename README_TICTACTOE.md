@@ -22,6 +22,7 @@
 │   └── trainer.py        # 训练器
 ├── train_model.py        # 基础模型训练脚本
 ├── train_advanced.py     # 高级训练脚本 (自我对弈，提升胜率)
+├── train_ultra.py        # 超级训练脚本 (集成所有优化方法) 🚀
 ├── play_game.py          # 人机对战脚本
 └── README_TICTACTOE.md   # 项目文档
 ```
@@ -87,6 +88,33 @@ python train_advanced.py --episodes 30000 --learning-rate 0.15
 3. 阶段3: 低探索率 (ε=0.05) - 精细调优
 
 **预期效果:** 胜率约 50-60%+
+
+#### 超级训练 (集成所有优化方法) 🚀
+
+使用状态对称性、双Q学习、经验回放和集成学习：
+
+```bash
+python train_ultra.py
+```
+
+自定义训练参数：
+
+```bash
+python train_ultra.py --episodes 30000 --num-models 3
+```
+
+可用参数：
+- `--episodes`: 每个模型的训练轮数 (默认: 30000)
+- `--num-models`: 集成模型数量 (默认: 3)
+- `--output-dir`: 模型保存目录 (默认: models/ultra)
+
+**优化方法:**
+1. **状态对称性利用**: 8种对称状态共享Q值，效率提升8倍
+2. **双Q学习**: 使用两个Q表减少过高估计
+3. **经验回放**: 存储历史对局，随机采样重新学习
+4. **集成学习**: 训练多个模型，投票决策
+
+**预期效果:** 胜率约 70-80%+
 
 ### 2. 与AI对战
 

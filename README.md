@@ -21,6 +21,9 @@ python train_model.py
 # 高级训练 - 自我对弈 (胜率 50-60%+) 🌟
 python train_advanced.py
 
+# 超级训练 - 集成所有优化 (胜率 70-80%+) 🚀
+python train_ultra.py
+
 # 与AI对战
 python play_game.py
 ```
