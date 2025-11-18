@@ -154,13 +154,36 @@ python play_game.py
 python play_game.py --ai-first
 ```
 
-使用自定义模型：
+### 3. 对局分析与复盘 📊
+
+分析AI输掉的对局，找出弱点并提供改进建议：
 
 ```bash
-python play_game.py --model models/my_model.pkl
+# 分析模型性能
+python analyze_games.py --model models/ultra_trained/model_1.pkl
+
+# 分析更多对局
+python analyze_games.py --model models/my_model.pkl --games 200
+
+# 指定输出文件
+python analyze_games.py --output my_analysis.txt
 ```
 
-### 3. 游戏规则
+**分析功能:**
+- 📊 统计胜率、失败率、平局率
+- 🔍 分析失败模式和原因
+- ⚠️  识别关键失误（如错过获胜机会）
+- 🎯 识别弱势位置和状态
+- 💡 提供针对性改进建议
+- 💾 生成详细分析报告
+
+**分析报告包含:**
+- 失败对局的棋盘状态
+- 关键失误的具体走法
+- 最常失败的状态分析
+- 优先级排序的改进建议
+
+### 4. 游戏规则
 
 - 棋盘是3x3的网格
 - 玩家使用 X，AI使用 O（或相反，取决于谁先手）
