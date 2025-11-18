@@ -19,8 +19,15 @@ python demo.py
 ```
 
 ### 3. 训练模型
+
+#### 基础训练
 ```bash
 python train_model.py
+```
+
+#### 高级训练 (提升胜率) 🌟
+```bash
+python train_advanced.py
 ```
 
 ### 4. 与AI对战
@@ -92,6 +99,25 @@ trainer.evaluate(agent, opponent, num_games=100)
 
 ## 高级用法
 
+### 使用高级训练脚本 (自我对弈提升胜率) 🌟
+
+最简单的方法是使用内置的高级训练脚本：
+
+```bash
+# 使用默认参数 (30000轮训练)
+python train_advanced.py
+
+# 自定义参数
+python train_advanced.py --episodes 50000 --learning-rate 0.15
+```
+
+**工作原理:**
+- 两个Q-learning智能体互相对弈
+- 渐进式降低探索率 (0.3 → 0.15 → 0.05)
+- 自动选择表现更好的智能体保存
+
+**预期结果:** 胜率从 45% 提升到 50-60%+
+
 ### 自定义训练参数
 
 ```bash
@@ -103,7 +129,7 @@ python train_model.py \
     --output models/advanced_model.pkl
 ```
 
-### 两个Q-learning智能体互相训练
+### 两个Q-learning智能体互相训练 (代码示例)
 
 ```python
 from tic_tac_toe import QLearningAgent, TicTacToeTrainer

@@ -15,8 +15,11 @@ pip install -r requirements.txt
 # 运行演示
 python demo.py
 
-# 训练模型
+# 基础训练 (胜率 45-48%)
 python train_model.py
+
+# 高级训练 - 自我对弈 (胜率 50-60%+) 🌟
+python train_advanced.py
 
 # 与AI对战
 python play_game.py

@@ -20,7 +20,8 @@
 │   ├── game.py           # 游戏逻辑
 │   ├── agent.py          # AI智能体
 │   └── trainer.py        # 训练器
-├── train_model.py        # 模型训练脚本
+├── train_model.py        # 基础模型训练脚本
+├── train_advanced.py     # 高级训练脚本 (自我对弈，提升胜率)
 ├── play_game.py          # 人机对战脚本
 └── README_TICTACTOE.md   # 项目文档
 ```
@@ -34,6 +35,8 @@ pip install numpy
 ## 使用方法
 
 ### 1. 训练模型
+
+#### 基础训练 (对抗随机对手)
 
 使用默认参数训练模型：
 
@@ -54,6 +57,36 @@ python train_model.py --episodes 50000 --learning-rate 0.1 --epsilon 0.15
 - `--epsilon`: 探索率 (默认: 0.1)
 - `--output`: 模型保存路径 (默认: models/tic_tac_toe_model.pkl)
 - `--eval-games`: 评估游戏数 (默认: 100)
+
+**预期效果:** 胜率约 45-48%
+
+#### 高级训练 (自我对弈，提升胜率) 🌟
+
+使用自我对弈和渐进式训练策略：
+
+```bash
+python train_advanced.py
+```
+
+自定义训练参数：
+
+```bash
+python train_advanced.py --episodes 30000 --learning-rate 0.15
+```
+
+可用参数：
+- `--episodes`: 总训练轮数 (默认: 30000)
+- `--learning-rate`: 学习率 (默认: 0.15)
+- `--discount-factor`: 折扣因子 (默认: 0.95)
+- `--output`: 模型保存路径 (默认: models/advanced_model.pkl)
+- `--eval-games`: 评估游戏数 (默认: 200)
+
+**训练策略:**
+1. 阶段1: 高探索率 (ε=0.3) - 两个AI互相对弈探索策略
+2. 阶段2: 中等探索率 (ε=0.15) - 平衡探索和利用
+3. 阶段3: 低探索率 (ε=0.05) - 精细调优
+
+**预期效果:** 胜率约 50-60%+
 
 ### 2. 与AI对战
 
